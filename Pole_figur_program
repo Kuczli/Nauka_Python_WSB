@@ -1,0 +1,88 @@
+#program, który po kliknięciu przez użytkownika danego przycisku odwoła się do odpowiednich funkcji
+#wyliczy różne pola figur uprzednio po podaniu danych od użytkownika
+
+
+import math
+import keyboard
+#Tworzymy klasy
+class Poletrójkąta:
+    def wymiary(self, bokA, wysokośćH):
+        self.bokA = bokA
+        self.wysokość = wysokośćH
+    def pole(self):
+        poleTrójkąta = (int(self.bokA) * int(self.wysokość)) / 2
+        print("\n\nPole trójkąta wynosi: ",poleTrójkąta)
+        print('\n\nNaciśnij by wybrać co ma program policzyć: \n Pole Trójkąta - 1 \n Pole Kwadratu - 2 \n Pole Trapezu - 3 \n Pole Koła - 4')
+
+class Polekwadratu:
+    def wymiary(self, bokA):
+        self.bokA = bokA
+    def pole(self):
+        poleKwadratu = int(self.bokA) * int(self.bokA)
+        print("\n\nPole kwadratu wynosi: ",poleKwadratu)
+        print('\n\nNaciśnij by wybrać co ma program policzyć: \n Pole Trójkąta - 1 \n Pole Kwadratu - 2 \n Pole Trapezu - 3 \n Pole Koła - 4')
+
+
+
+class PoleTrapezu:
+    def wymiary(self, bokA, bokB, wysokość):
+        self.bokA = bokA
+        self.bokB = bokB
+        self.wysokość = wysokość
+    def pole(self):
+        poleTrapezu = ((int(self.bokA) + int(self.bokB)) / 2) * int(self.wysokość)
+        print("\n\nPole Trapezu wynosi: ",poleTrapezu)
+        print('\n\nNaciśnij by wybrać co ma program policzyć: \n Pole Trójkąta - 1 \n Pole Kwadratu - 2 \n Pole Trapezu - 3 \n Pole Koła - 4')
+
+class PoleKoła:
+    def wymiary(self,pi, promień):
+        self.pi = math.pi
+        self.promień = promień
+    def pole(self):
+        poleKoła = int(self.pi) * int(self.promień) * int(self.promień)
+        print("\n\nPole Koła wynosi:",poleKoła)
+        print('\n\nNaciśnij by wybrać co ma program policzyć: \n Pole Trójkąta - 1 \n Pole Kwadratu - 2 \n Pole Trapezu - 3 \n Pole Koła - 4')
+#Klasa główna
+class Main:
+    def start(self):
+        print('Witaj w generatorze, który oblicza \n\t\t\t[POLE FIGURY]')
+        print('Które pole figury chcesz obliczyć ??? \n[ Trójkąt / Kwadrat / Trapez / Koło ]')
+        print('Naciśnij by wybrać co ma program policzyć: \n Pole Trójkąta - 1 \n Pole Kwadratu - 2 \n Pole Trapezu - 3 \n Pole Koła - 4')
+
+
+    def obliczPolaFigur(self):
+        while True:
+            if keyboard.read_key() == "1":
+                trojkat = Poletrójkąta()
+                print('Więc liczymy Pole Trójkąta, podaj dane: ')
+                trojkat.wymiary(bokA=input('Wprowadź Bok A: '), wysokośćH=input('Wprowadź Wysokość: '))
+                trojkat.pole()
+                continue
+            if keyboard.read_key() == "2":
+                kwadrat = Polekwadratu()
+                print('Więc liczymy Pole Kwadratu, podaj dane: ')
+                kwadrat.wymiary(bokA=input('Wprowadź Bok A: '))
+                kwadrat.pole()
+                continue
+            if keyboard.read_key() == "3":
+                trapez = PoleTrapezu()
+                print('Więc liczymy Pole Trapezu, podaj dane: ')
+                trapez.wymiary(bokA=input('Wprowadź Bok A: '), bokB=input('Wprowadź Bok B: '), wysokość=input('Wprowadź Wysokość: '))
+                trapez.pole()
+                continue
+            if keyboard.read_key() == "4":
+                kolo = PoleKoła()
+                print('Więc liczymy Pole Koła, podaj dane: ')
+                kolo.wymiary(math.pi,promień=input('Wprowadź promień r = '))
+                kolo.pole()
+                continue
+
+
+
+#Odwołanie z klas
+main = Main()
+main.start()
+main.obliczPolaFigur()
+
+
+
