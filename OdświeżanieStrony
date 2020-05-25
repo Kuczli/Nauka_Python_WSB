@@ -1,0 +1,12 @@
+#program odświeża stronę co 3 sekundy, aż 1000 razy.
+from selenium import webdriver
+import time
+PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATH)
+
+for ile in range(0,1000):
+    driver.get("https://")
+    print(ile)
+    time.sleep(3)
+
+driver.quit()
