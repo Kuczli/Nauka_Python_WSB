@@ -1,0 +1,143 @@
+#Konwersja liczby zapisanej w systemie dziesiętnym na dowolny system liczbowy
+import keyboard
+class Dwójkowy:
+
+    def konwersja_z_dziesiętnej_na_2(self,liczba=0, wyn=''):
+        while liczba != 0:
+            wyn = wyn+str(liczba%2)
+            liczba = liczba // 2
+        print('Twoja liczba z Systemu dziesiętnego na Dwójkowy wynosi:\n')
+        for i in range(len(wyn)-1,-1,-1):
+            print(wyn[i],end='')
+
+class Czwórkowy:
+
+    def konwersja_z_dziesiętnej_na_4(self,liczba=0, wyn=''):
+        while liczba != 0:
+            wyn = wyn + str(liczba % 4)
+            liczba = liczba // 4
+        print('Twoja liczba z Systemu dziesiętnego na Czwórkowy wynosi:\n')
+        for i in range(len(wyn) - 1, -1, -1):
+            print(wyn[i], end='')
+
+class Ósemkowy:
+
+    def konwersja_z_dziesiętnej_na_8(self,liczba=0, wyn=''):
+        while liczba != 0:
+            wyn = wyn + str(liczba % 8)
+            liczba = liczba // 8
+        print('Twoja liczba z Systemu dziesiętnego na Ósemkowy wynosi:\n')
+        for i in range(len(wyn) - 1, -1, -1):
+            print(wyn[i], end='')
+
+class Dwunastkowy:
+
+
+    def konwersja_z_dziesiętnej_na_12(self,liczba=0,wyn=''):
+
+        while liczba != 0:
+            r = liczba % 12
+            if int(r) == 10:
+                wyn += 'A'
+            elif int(r) == 11:
+                wyn += 'B'
+            elif int(r) == 12:
+                wyn += 'C'
+            else:
+                wyn += str(r)
+            liczba = liczba // 12
+
+        print('Twoja liczba z Systemu dziesiętnego na Dwunastkowy wynosi:\n')
+        for i in range(len(wyn) - 1, -1, -1):
+            print(wyn[i], end='')
+
+class Czternastkowy:
+
+
+    def konwersja_z_dziesiętnej_na_14(self,liczba=0,wyn=''):
+
+        while liczba != 0:
+            r = liczba % 14
+            if int(r) == 10:
+                wyn += 'A'
+            elif int(r) == 11:
+                wyn += 'B'
+            elif int(r) == 12:
+                wyn += 'C'
+            elif int(r) == 13:
+                wyn += 'D'
+            elif int(r) == 14:
+                wyn += 'E'
+            else:
+                wyn += str(r)
+            liczba = liczba // 14
+
+        print('Twoja liczba z Systemu dziesiętnego na Czternastkowy wynosi:\n')
+        for i in range(len(wyn) - 1, -1, -1):
+            print(wyn[i], end='')
+
+class Szestnastkowy:
+
+    def konwersja_z_dziesiętnej_na_16(self,liczba=0,wyn=''):
+
+        while liczba != 0:
+            r = liczba % 16
+            if int(r) == 10:
+                wyn += 'A'
+            elif int(r) == 11:
+                wyn += 'B'
+            elif int(r) == 12:
+                wyn += 'C'
+            elif int(r) == 13:
+                wyn += 'D'
+            elif int(r) == 14:
+                wyn += 'E'
+            elif int(r) == 15:
+                wyn += 'F'
+            else:
+                wyn += str(r)
+            liczba = liczba // 16
+
+        print('Twoja liczba z Systemu dziesiętnego na Szestnastkowy wynosi:\n')
+        for i in range(len(wyn) - 1, -1, -1):
+            print(wyn[i], end='')
+
+class Main:
+    def start_program(self):
+        print("Witaj w kalkulatorze, który przekonwertuje dla Ciebie zapis z systemu Dziesiętnego na:\n"
+              "Dwójkowy - [1] <- Naciśnij przycisk\nCzwórkowy - [2] <- Naciśnij przycisk\nÓsemkowy - [3] <- Naciśnij przycisk\nDwunastkowy - [4] <- Naciśnij przycisk\nCzternastkowy - [5] <- Naciśnij przycisk\nSzestnastkowy - [6] <- Naciśnij przycisk ")
+
+    def konwersja_start(self):
+
+        while True:
+            if keyboard.read_key() == "1":
+                binary = Dwójkowy()
+                binary.konwersja_z_dziesiętnej_na_2(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+            if keyboard.read_key() == '2':
+                czwórka = Czwórkowy()
+                czwórka.konwersja_z_dziesiętnej_na_4(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+            if keyboard.read_key() == '3':
+                ósemka = Ósemkowy()
+                ósemka.konwersja_z_dziesiętnej_na_8(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+            if keyboard.read_key() == '4':
+                dwun = Dwunastkowy()
+                dwun.konwersja_z_dziesiętnej_na_12(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+            if keyboard.read_key() == '5':
+                czter = Czternastkowy()
+                czter.konwersja_z_dziesiętnej_na_14(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+            if keyboard.read_key() == "6":
+                hex = Szestnastkowy()
+                hex.konwersja_z_dziesiętnej_na_16(liczba=int(input('\nWprowadź liczbę Dziesiętną:')))
+                quit()
+
+
+
+main = Main()
+main.start_program()
+main.konwersja_start()
+
