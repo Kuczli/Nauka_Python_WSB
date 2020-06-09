@@ -1,0 +1,63 @@
+#Daniel Motowilczuk for WSB
+class Tylko_litery:
+
+    def isAlpha (self,do_zakodowania):
+        for i in do_zakodowania:
+            if i in małe:
+                print('PRAWDA')
+                break
+            elif i in duże:
+                print('PRAWDA')
+                break
+            elif i in liczby:
+                print('FAŁSZ')
+                break
+            else:
+                print('FAŁSZ')
+                break
+class Odszyfruj:
+    def odKoduj (self,zakodowane,od_kodowane=''):
+        for i in zakodowane:
+            pozycja = wszystkie.find(i)
+            pozycja_nowa = (pozycja + (przesunięcie + 4)) % 26
+            od_kodowane += wszystkie[pozycja_nowa]
+        print('Twój tekst odkodowany to:\n', od_kodowane)
+
+
+
+
+liczby = '0123456789'
+duże = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+małe = 'abcdefghijklmnopqrstuvwxyz'
+wszystkie = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+przesunięcie = -2
+zakodowane = ''
+od_kodowane = ''
+
+do_zakodowania = input('Napisz co zakodować: \n')
+
+
+
+print('Czy litery są DUŻE lub małe?')
+tylko_litery = Tylko_litery()
+tylko_litery.isAlpha(do_zakodowania)
+
+
+for i in do_zakodowania:
+    pozycja = wszystkie.find(i)
+    pozycja_nowa = (pozycja + przesunięcie) % 26
+    zakodowane += wszystkie[pozycja_nowa]
+print('Twój tekst zakodowany to:\n', zakodowane)
+
+odkodowane = Odszyfruj()
+odkodowane.odKoduj(zakodowane)
+
+
+
+
+
+
+
+
+
+
