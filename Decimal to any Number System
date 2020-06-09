@@ -1,3 +1,4 @@
+#Daniel Motowilczuk for WSB
 #Konwersja liczby zapisanej w systemie dziesiętnym na dowolny system liczbowy
 import keyboard
 class Dwójkowy:
