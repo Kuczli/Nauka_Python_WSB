@@ -1,0 +1,134 @@
+import time as t
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+
+
+
+class Login_in:
+    def login(self, login, password):
+        self.login = login
+        self.password = password
+        driver.get('https://www.instagram.com/accounts/login/?source=auth_switcher')
+        t.sleep(5)
+        login_box = driver.find_element_by_name('username')
+        login_box.send_keys(login)
+        t.sleep(2)
+        password_box = driver.find_element_by_name('password')
+        password_box.send_keys(password)
+        t.sleep(2)
+        button_log_in = driver.find_element_by_class_name('sqdOP.L3NKy.y3zKF')
+        button_log_in.click()
+        t.sleep(4)
+
+    def attention_off(self):
+        click_off = driver.find_element_by_class_name('sqdOP.yWX7d.y3zKF')
+        click_off.click()
+        t.sleep(1)
+        click_off1 = driver.find_element_by_class_name('aOOlW.HoLwm')
+        click_off1.click()
+        t.sleep(1)
+
+
+class Hash_Tag:
+    def choose_hashtag(self, hashtag):
+        self.hashtag = hashtag
+        hashtag_link = driver.get(hashtag)
+        t.sleep(4)
+
+    def go_to_new_image(self):
+        new_image = driver.find_element_by_class_name('v1Nh3.kIKUG._bz0w')
+        new_image.click()
+        t.sleep(3)
+        count = 1
+
+
+class Like_heart:
+    def click_like_go_next_loop(self):
+        no_color = '#262626'
+        color = '#ed4956'
+        heart_fill = driver.find_element_by_class_name('_8-yf5').get_attribute('fill')
+        next_click = driver.find_element_by_class_name('_65Bje.coreSpriteRightPaginationArrow')
+        count = 1
+        print(count)
+        print('wchodzi')
+        while True:
+            while count <= 9:
+                if heart_fill != color:
+                    heart = driver.find_element_by_class_name('wpO6b')
+                    heart.click()
+                    t.sleep(1)
+                    next_click.click()
+                    t.sleep(4)
+                    count += 1
+                    print(count)
+            break
+        print('wyszło z pętli')
+
+
+
+
+
+class Bot_IG:
+    def looping_photo(self,count = 0, how_many_time_loop = 0,):
+        self.how_many_time_loop = how_many_time_loop
+        self.count = count
+        no_color = '#262626'
+        color = '#ed4956'
+        heart_fill = driver.find_element_by_class_name('_8-yf5').get_attribute('fill')
+        next_click = driver.find_element_by_class_name('_65Bje.coreSpriteRightPaginationArrow')
+        print('wchodzi w pętle')
+        count = 0
+        count1 = 0
+        print('0',count)
+        while count <= how_many_time_loop:
+            if heart_fill != color:
+                print('pętla : ',count)
+                heart = driver.find_element_by_class_name('wpO6b')
+                heart.click()
+                t.sleep(1)
+                next_click.click()
+                t.sleep(4)
+                count += 1
+                print(count,'count',count, how_many_time_loop - count)
+                if count == 6:
+                    print('kom')
+                    comment_fill = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form')
+                    comment_fill.click()
+                    t.sleep(1)
+                    print('click')
+                    comment_fill1 = driver.find_element_by_class_name('Ypffh')
+                    comment_fill1.send_keys('follow4follow like4like')
+                    t.sleep(1)
+                    print('2')
+                    comment_button = driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/button')
+                    comment_button.click()
+                    t.sleep(1)
+                    print('zerujemy')
+                    count = 0
+                    continue
+            else:
+                next_click.click()
+                t.sleep(4)
+                count += 1
+
+
+
+driver = webdriver.Chrome('C:\Program Files (x86)\chromedriver')
+actions = ActionChains(driver)
+keys = Keys
+
+# Run the program = Bot for Instagram
+log_in = Login_in()
+log_in.login('kuczli', 'kuczli210011')
+log_in.attention_off()
+# Search to your own hashTag
+hash_tag = Hash_Tag()
+hash_tag.choose_hashtag('https://www.instagram.com/explore/tags/polishgirl/')
+hash_tag.go_to_new_image()
+# Script like, go next photo, like, repeat <><>\ = goal > go to newest photo
+liking_photo_loop = Like_heart()
+liking_photo_loop.click_like_go_next_loop()
+# Script to loop, like, comment new photo
+bot_ig = Bot_IG()
+bot_ig.looping_photo(0,100)
