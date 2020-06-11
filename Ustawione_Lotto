@@ -1,0 +1,100 @@
+import random as r
+import keyboard as Key
+
+class Lotto:
+
+    def void_regulamin_win(self):
+        print('\nW Lotto, w ramach jednego zakładu prostego, ustala się cztery stopnie wygranych:')
+        print('I stopień - za 6 trafnie wytypowanych liczb,\nII stopień - za 5 trafnie wytypowanych liczb,\nIII stopień - za 4 trafnie wytypowane liczby,\nIV stopień - za 3 trafnie wytypowane liczby\n')
+        toto_lotek.wybranie_liczb()
+
+
+    def void_open(self):
+        print('Witaj w aplikacji:\n [TRAFIASZ 6 w losowaniu Lotto!]')
+        print('')
+        print('Zasady są proste:\n1. Wpisujesz swoich 6 liczb\n2. Program generuje liczby od 1 do 49\n3. Zaczyna się losowanie\n4. JESTEŚ zwycięzcą!')
+        print('')
+        print('Chcesz zobaczyć regulamin? KLIKNIJ > 1\nChcesz zacząć wybrać swoje liczby? KLIKNIJ > 2\n')
+        if Key.read_key() == '1':
+            toto_lotek.void_regulamin_win()
+        else:
+            toto_lotek.wybranie_liczb()
+
+
+    def wybranie_liczb(self,a=0,b=0,c=0,d=0,e=0,f=0,liczby_gracza=[]):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.d = d
+        self.e = e
+        self.f = f
+        self.liczby_gracza = liczby_gracza
+
+        print('WYBIERZ SWOJE SZCZĘŚLIWE LICZBY [od 1 do 49]:\n')
+        while True:
+            a = int(input('Liczba nr1: '))
+            liczby_gracza.append(a)
+            if 1 <= a <= 50:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+        while True:
+            b = int(input('Liczba nr2: '))
+            liczby_gracza.append(b)
+            if 1 <= b <= 50 and b != a:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+        while True:
+            c = int(input('Liczba nr3: '))
+            liczby_gracza.append(c)
+            if 1 <= c <= 50 and c != a and c != b:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+        while True:
+            d = int(input('Liczba nr4: '))
+            liczby_gracza.append(d)
+            if 1 <= d <= 50 and d!=a and d!=b and d!=c:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+        while True:
+            e = int(input('Liczba nr5: '))
+            liczby_gracza.append(e)
+            if 1 <= e <= 50 and e!=a and e!=b and e!=c and e!=d:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+        while True:
+            f = int(input('Liczba nr6: '))
+            liczby_gracza.append(f)
+            if 1 <= f <= 50 and f!=a and f!=b and f!=c and f!=d and f!=e:
+                break
+            print('Musisz wpisać TYLKO LICZBĘ z przedziału od 1 do 49!')
+            break
+        print('')
+        print('\nZACZYNAMY LOSOWANIE LOTTO\n')
+        toto_lotek.symulator_losowania()
+        print('')
+        print('COŚ NIESAMOWITEGO!!!\nWYLOSOWANYMI LICZBAMI SĄ!:\n',liczby_gracza)
+        print('')
+        print('WYGRAŁEŚ! = 3.000.000zł!')
+
+
+
+    def symulator_losowania(self):
+        count = 0
+        print('Machina ruszyła: ')
+        while count <=15:
+            random_list = []
+            for i in range(0,10):
+                n = r.randint(1,50)
+                random_list.append(n)
+            count += 1
+            print(random_list)
+
+
+#START PROGRAMU
+toto_lotek = Lotto()
+toto_lotek.void_open()
+
+
+
+
+
